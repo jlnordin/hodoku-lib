@@ -8,6 +8,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import com.hobiwan.hodoku.compatibility.*;
+import com.hobiwan.hodoku.sudoku.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -22,5 +26,8 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         assertEquals("com.hobiwan.hodokuandroid", appContext.getPackageName());
+
+        DifficultyLevel difficultyLevel = new DifficultyLevel(DifficultyType.EXTREME, 10, "test", new Color(android.graphics.Color.RED), new Color(android.graphics.Color.WHITE));
+        assertEquals("test", difficultyLevel.getName());
     }
 }
