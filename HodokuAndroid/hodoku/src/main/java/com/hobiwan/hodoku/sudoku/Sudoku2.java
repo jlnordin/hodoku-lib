@@ -16,10 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
-import generator.SudokuGenerator;
-import generator.SudokuGeneratorFactory;
+import com.hobiwan.hodoku.generator.SudokuGenerator;
+import com.hobiwan.hodoku.generator.SudokuGeneratorFactory;
 import java.io.ObjectInputStream;
 import java.util.Arrays;
 import java.util.SortedSet;

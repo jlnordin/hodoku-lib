@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -28,8 +28,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import solver.SudokuSolverFactory;
-import solver.SudokuStepFinder;
+import com.hobiwan.hodoku.solver.SudokuSolverFactory;
+import com.hobiwan.hodoku.solver.SudokuStepFinder;
 
 /**
  * A class that implements a Regression Tester for HoDoKu

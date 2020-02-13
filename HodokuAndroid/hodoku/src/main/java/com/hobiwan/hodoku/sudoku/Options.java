@@ -16,10 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
-import generator.BackgroundGeneratorThread;
-import generator.GeneratorPattern;
+import com.hobiwan.hodoku.generator.BackgroundGeneratorThread;
+import com.hobiwan.hodoku.generator.GeneratorPattern;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;

@@ -17,7 +17,7 @@
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
 import java.io.Serializable;
 import java.util.logging.Level;

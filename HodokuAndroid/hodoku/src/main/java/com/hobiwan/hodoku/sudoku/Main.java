@@ -16,11 +16,11 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
-import generator.BackgroundGeneratorThread;
-import generator.SudokuGenerator;
-import generator.SudokuGeneratorFactory;
+import com.hobiwan.hodoku.generator.BackgroundGeneratorThread;
+import com.hobiwan.hodoku.generator.SudokuGenerator;
+import com.hobiwan.hodoku.generator.SudokuGeneratorFactory;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -47,8 +47,8 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-import solver.SudokuSolver;
-import solver.SudokuSolverFactory;
+import com.hobiwan.hodoku.solver.SudokuSolver;
+import com.hobiwan.hodoku.solver.SudokuSolverFactory;
 
 /**
  *

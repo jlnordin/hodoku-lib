@@ -16,16 +16,16 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import solver.Als;
-import solver.TableEntry;
-import solver.TablingSolver;
+import com.hobiwan.hodoku.solver.Als;
+import com.hobiwan.hodoku.solver.TableEntry;
+import com.hobiwan.hodoku.solver.TablingSolver;
 
 /**
  * A chain consists of links, every link can be weak or strong, it can be a candidat in a cell,

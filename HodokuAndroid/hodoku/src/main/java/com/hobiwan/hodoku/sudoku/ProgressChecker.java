@@ -16,13 +16,13 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
 import java.awt.EventQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import solver.SudokuSolver;
-import solver.SudokuSolverFactory;
+import com.hobiwan.hodoku.solver.SudokuSolver;
+import com.hobiwan.hodoku.solver.SudokuSolverFactory;
 
 /**
  * Checks the actual progress a sudoku has made. It should only be

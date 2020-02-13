@@ -17,12 +17,12 @@
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
 import java.awt.EventQueue;
 import java.util.List;
-import solver.SudokuSolverFactory;
-import solver.SudokuStepFinder;
+import com.hobiwan.hodoku.solver.SudokuSolverFactory;
+import com.hobiwan.hodoku.solver.SudokuStepFinder;
 
 /**
  *

@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
@@ -31,8 +31,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import solver.Als;
-import solver.RestrictedCommon;
+import com.hobiwan.hodoku.solver.Als;
+import com.hobiwan.hodoku.solver.RestrictedCommon;
 
 /**
  *

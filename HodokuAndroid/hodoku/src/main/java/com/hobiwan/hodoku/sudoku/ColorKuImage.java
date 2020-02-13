@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sudoku;
+package com.hobiwan.hodoku.sudoku;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
