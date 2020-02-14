@@ -16,10 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package generator;
+package com.hobiwan.hodoku.generator;
 
 import java.util.Arrays;
-import sudoku.Sudoku2;
+import com.hobiwan.hodoku.sudoku.Sudoku2;
 
 /**
  * A pattern, that indicates, which cells should contain givens

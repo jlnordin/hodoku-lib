@@ -16,15 +16,15 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package solver;
+package com.hobiwan.hodoku.solver;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sudoku.Chain;
-import sudoku.Options;
-import sudoku.SudokuSet;
+import com.hobiwan.hodoku.sudoku.Chain;
+import com.hobiwan.hodoku.sudoku.Options;
+import com.hobiwan.hodoku.sudoku.SudokuSet;
 
 /**
  * The format of an entry is described in class {@link Chain}.<br><br>

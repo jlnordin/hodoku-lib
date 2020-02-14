@@ -37,11 +37,11 @@
  *      1  2  3    4  5  6    7  8  9
  */
 
-package solver;
+package com.hobiwan.hodoku.solver;
 
-import sudoku.SolutionStep;
-import sudoku.SolutionType;
-import sudoku.Sudoku2;
+import com.hobiwan.hodoku.sudoku.SolutionStep;
+import com.hobiwan.hodoku.sudoku.SolutionType;
+import com.hobiwan.hodoku.sudoku.Sudoku2;
 
 /**
  *

@@ -17,15 +17,15 @@
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package generator;
+package com.hobiwan.hodoku.generator;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sudoku.DifficultyLevel;
-import sudoku.DifficultyType;
-import sudoku.GameMode;
-import sudoku.Options;
-import sudoku.StepConfig;
+import com.hobiwan.hodoku.sudoku.DifficultyLevel;
+import com.hobiwan.hodoku.sudoku.DifficultyType;
+import com.hobiwan.hodoku.sudoku.GameMode;
+import com.hobiwan.hodoku.sudoku.Options;
+import com.hobiwan.hodoku.sudoku.StepConfig;
 
 /**
  * One instance of this class is used to control the background creation

@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package solver;
+package com.hobiwan.hodoku.solver;
 
 import java.beans.XMLDecoder;
 import java.io.BufferedInputStream;
@@ -27,16 +27,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import sudoku.Candidate;
-import sudoku.Chain;
-import sudoku.FindAllStepsProgressDialog;
-import sudoku.Options;
-import sudoku.SolutionStep;
-import sudoku.SolutionType;
-import sudoku.Sudoku2;
-import sudoku.SudokuSet;
-import sudoku.SudokuSetBase;
-import sudoku.SudokuUtil;
+import com.hobiwan.hodoku.sudoku.Candidate;
+import com.hobiwan.hodoku.sudoku.Chain;
+import com.hobiwan.hodoku.sudoku.FindAllStepsProgressDialog;
+import com.hobiwan.hodoku.sudoku.Options;
+import com.hobiwan.hodoku.sudoku.SolutionStep;
+import com.hobiwan.hodoku.sudoku.SolutionType;
+import com.hobiwan.hodoku.sudoku.Sudoku2;
+import com.hobiwan.hodoku.sudoku.SudokuSet;
+import com.hobiwan.hodoku.sudoku.SudokuSetBase;
+import com.hobiwan.hodoku.sudoku.SudokuUtil;
 
 /**
  * Es gelten die Definitionen aus dem Ultimate Fish Guide: http://www.sudoku.com/boards/viewtopic.php?t=4993

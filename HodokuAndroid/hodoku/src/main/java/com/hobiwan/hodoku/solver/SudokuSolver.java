@@ -17,7 +17,7 @@
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package solver;
+package com.hobiwan.hodoku.solver;
 
 import java.io.BufferedWriter;
 import java.io.PrintStream;
@@ -26,19 +26,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sudoku.DifficultyLevel;
-import sudoku.DifficultyType;
-import sudoku.FindAllStepsProgressDialog;
-import sudoku.GameMode;
-import sudoku.GuiState;
-import sudoku.Options;
-import sudoku.SolutionCategory;
-import sudoku.SolutionStep;
-import sudoku.SolutionType;
-import sudoku.SolverProgressDialog;
-import sudoku.StepConfig;
-import sudoku.Sudoku2;
-import sudoku.SudokuUtil;
+import com.hobiwan.hodoku.sudoku.DifficultyLevel;
+import com.hobiwan.hodoku.sudoku.DifficultyType;
+import com.hobiwan.hodoku.sudoku.FindAllStepsProgressDialog;
+import com.hobiwan.hodoku.sudoku.GameMode;
+import com.hobiwan.hodoku.sudoku.GuiState;
+import com.hobiwan.hodoku.sudoku.Options;
+import com.hobiwan.hodoku.sudoku.SolutionCategory;
+import com.hobiwan.hodoku.sudoku.SolutionStep;
+import com.hobiwan.hodoku.sudoku.SolutionType;
+import com.hobiwan.hodoku.sudoku.SolverProgressDialog;
+import com.hobiwan.hodoku.sudoku.StepConfig;
+import com.hobiwan.hodoku.sudoku.Sudoku2;
+import com.hobiwan.hodoku.sudoku.SudokuUtil;
 
 /**
  *

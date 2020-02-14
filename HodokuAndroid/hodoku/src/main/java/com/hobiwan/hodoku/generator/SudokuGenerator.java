@@ -20,17 +20,17 @@
  * in the Sudoku Player's Forum (http://www.setbb.com/sudoku).
  * Many thanks for letting me use it!
  */
-package generator;
+package com.hobiwan.hodoku.generator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sudoku.Options;
-import sudoku.Sudoku2;
-import sudoku.SudokuSinglesQueue;
-import sudoku.SudokuStatus;
+import com.hobiwan.hodoku.sudoku.Options;
+import com.hobiwan.hodoku.sudoku.Sudoku2;
+import com.hobiwan.hodoku.sudoku.SudokuSinglesQueue;
+import com.hobiwan.hodoku.sudoku.SudokuStatus;
 
 /**
  * Bit based backtracking solver.

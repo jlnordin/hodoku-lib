@@ -17,19 +17,19 @@
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package generator;
+package com.hobiwan.hodoku.generator;
 
 import java.awt.EventQueue;
 import java.util.List;
-import solver.SudokuSolver;
-import solver.SudokuSolverFactory;
-import sudoku.ClipboardMode;
-import sudoku.DifficultyLevel;
-import sudoku.GameMode;
-import sudoku.GenerateSudokuProgressDialog;
-import sudoku.Options;
-import sudoku.SolutionStep;
-import sudoku.Sudoku2;
+import com.hobiwan.hodoku.solver.SudokuSolver;
+import com.hobiwan.hodoku.solver.SudokuSolverFactory;
+import com.hobiwan.hodoku.sudoku.ClipboardMode;
+import com.hobiwan.hodoku.sudoku.DifficultyLevel;
+import com.hobiwan.hodoku.sudoku.GameMode;
+import com.hobiwan.hodoku.sudoku.GenerateSudokuProgressDialog;
+import com.hobiwan.hodoku.sudoku.Options;
+import com.hobiwan.hodoku.sudoku.SolutionStep;
+import com.hobiwan.hodoku.sudoku.Sudoku2;
 
 /**
  * A BackgroundGenerator generates sudokus with a given {@link DifficultyLevel} 

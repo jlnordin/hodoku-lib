@@ -17,7 +17,7 @@
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package generator;
+package com.hobiwan.hodoku.generator;
 
 import java.util.ArrayList;
 import java.util.Iterator;

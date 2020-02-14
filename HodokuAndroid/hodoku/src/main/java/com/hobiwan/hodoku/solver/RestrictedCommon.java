@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package solver;
+package com.hobiwan.hodoku.solver;
 
 import java.io.Serializable;
 import java.util.logging.Level;

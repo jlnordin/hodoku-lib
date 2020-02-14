@@ -17,18 +17,18 @@
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package solver;
+package com.hobiwan.hodoku.solver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import sudoku.Candidate;
-import sudoku.SolutionStep;
-import sudoku.SolutionType;
-import sudoku.Sudoku2;
-import sudoku.SudokuSinglesQueue;
-import sudoku.SudokuUtil;
+import com.hobiwan.hodoku.sudoku.Candidate;
+import com.hobiwan.hodoku.sudoku.SolutionStep;
+import com.hobiwan.hodoku.sudoku.SolutionType;
+import com.hobiwan.hodoku.sudoku.Sudoku2;
+import com.hobiwan.hodoku.sudoku.SudokuSinglesQueue;
+import com.hobiwan.hodoku.sudoku.SudokuUtil;
 
 /**
  *

@@ -17,10 +17,10 @@
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package solver;
+package com.hobiwan.hodoku.solver;
 
-import sudoku.SolutionStep;
-import sudoku.SolutionType;
+import com.hobiwan.hodoku.sudoku.SolutionStep;
+import com.hobiwan.hodoku.sudoku.SolutionType;
 
 /**
  *

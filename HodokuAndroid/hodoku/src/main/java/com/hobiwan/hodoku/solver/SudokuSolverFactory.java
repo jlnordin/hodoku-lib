@@ -17,7 +17,7 @@
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package solver;
+package com.hobiwan.hodoku.solver;
 
 import java.util.ArrayList;
 import java.util.Iterator;

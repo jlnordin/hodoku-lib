@@ -16,11 +16,11 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package solver;
+package com.hobiwan.hodoku.solver;
 
-import sudoku.SolutionStep;
-import sudoku.Sudoku2;
-import sudoku.SudokuSet;
+import com.hobiwan.hodoku.sudoku.SolutionStep;
+import com.hobiwan.hodoku.sudoku.Sudoku2;
+import com.hobiwan.hodoku.sudoku.SudokuSet;
 
 /**
  * An ALS is a number cells, that together contain one candidate more than the

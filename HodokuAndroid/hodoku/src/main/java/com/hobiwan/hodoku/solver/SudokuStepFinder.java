@@ -16,19 +16,19 @@
  * You should have received a copy of the GNU General Public License
  * along with HoDoKu. If not, see <http://www.gnu.org/licenses/>.
  */
-package solver;
+package com.hobiwan.hodoku.solver;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
-import sudoku.FindAllStepsProgressDialog;
-import sudoku.SolutionStep;
-import sudoku.SolutionType;
-import sudoku.StepConfig;
-import sudoku.Sudoku2;
-import sudoku.SudokuSet;
-import sudoku.SudokuSetBase;
+import com.hobiwan.hodoku.sudoku.FindAllStepsProgressDialog;
+import com.hobiwan.hodoku.sudoku.SolutionStep;
+import com.hobiwan.hodoku.sudoku.SolutionType;
+import com.hobiwan.hodoku.sudoku.StepConfig;
+import com.hobiwan.hodoku.sudoku.Sudoku2;
+import com.hobiwan.hodoku.sudoku.SudokuSet;
+import com.hobiwan.hodoku.sudoku.SudokuSetBase;
 
 /**
  * This class has two purposes:
