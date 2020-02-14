@@ -26,7 +26,7 @@ import com.hobiwan.hodoku.solver.SudokuSolverFactory;
 import com.hobiwan.hodoku.sudoku.ClipboardMode;
 import com.hobiwan.hodoku.sudoku.DifficultyLevel;
 import com.hobiwan.hodoku.sudoku.GameMode;
-import com.hobiwan.hodoku.sudoku.GenerateSudokuProgressDialog;
+import com.hobiwan.hodoku.viewmodels.GenerateSudokuProgressDialogViewModel;
 import com.hobiwan.hodoku.sudoku.Options;
 import com.hobiwan.hodoku.sudoku.SolutionStep;
 import com.hobiwan.hodoku.sudoku.Sudoku2;
@@ -34,8 +34,8 @@ import com.hobiwan.hodoku.sudoku.Sudoku2;
 /**
  * A BackgroundGenerator generates sudokus with a given {@link DifficultyLevel} 
  * and for a given {@link GameMode}. An instance of this class can be contained 
- * within a {@link BackgroundGeneratorThread} or within a {@link GenerateSudokuProgressDialog}.<br>
- * If it is called from a {@link GenerateSudokuProgressDialog}, it uses the
+ * within a {@link BackgroundGeneratorThread} or within a {@link GenerateSudokuProgressDialogViewModel}.<br>
+ * If it is called from a {@link GenerateSudokuProgressDialogViewModel}, it uses the
  * default solver and reports the progress to the dialog. If a puzzle has been
  * found, the dialog is closed. The creation process can be aborted at any time.<br>
  * If it is called from a {@link BackgroundGeneratorThread}, it simply delivers
@@ -46,10 +46,10 @@ import com.hobiwan.hodoku.sudoku.Sudoku2;
 public class BackgroundGenerator {
     /** Maximal number of tries, when called from a {@link BackgroundGeneratorThread}. */
     private static final int MAX_TRIES = 20000;
-    /** Current number of tries when called from {@link GenerateSudokuProgressDialog}. */
+    /** Current number of tries when called from {@link GenerateSudokuProgressDialogViewModel}. */
     private int anz = 0;
     /** Progress dialog when called from GUI. */
-    private GenerateSudokuProgressDialog progressDialog = null;
+    private GenerateSudokuProgressDialogViewModel progressDialog = null;
 
     /**
      * Generates a new instance.
@@ -60,7 +60,7 @@ public class BackgroundGenerator {
     
     /**
      * Creates a sudoku without responses to the GUI. Delegates to 
-     * {@link #generate(sudoku.DifficultyLevel, sudoku.GameMode, sudoku.GenerateSudokuProgressDialog) }.
+     * {@link #generate(sudoku.DifficultyLevel, sudoku.GameMode, viewmodels.GenerateSudokuProgressDialogViewModel) }.
      * 
      * @param level
      * @param mode
@@ -87,7 +87,7 @@ public class BackgroundGenerator {
      * @param dlg
      * @return 
      */
-    public Sudoku2 generate(DifficultyLevel level, GameMode mode, GenerateSudokuProgressDialog dlg) {
+    public Sudoku2 generate(DifficultyLevel level, GameMode mode, GenerateSudokuProgressDialogViewModel dlg) {
         long actMillis = System.currentTimeMillis();
         progressDialog = dlg;
         Sudoku2 sudoku = null;

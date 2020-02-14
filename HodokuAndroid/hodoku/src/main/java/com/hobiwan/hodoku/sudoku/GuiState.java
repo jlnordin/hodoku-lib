@@ -26,29 +26,31 @@ import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.hobiwan.hodoku.solver.SudokuSolver;
+import com.hobiwan.hodoku.viewmodels.SolutionPanelViewModel;
+import com.hobiwan.hodoku.viewmodels.SudokuPanelViewModel;
 
 /**
  * Holds the complete GUI state at a given time. The state consists of the
  * following items:<br>
- * {@link SudokuPanel}:
+ * {@link SudokuPanelViewModel}:
  * <ul>
- *  <li>{@link SudokuPanel#sudoku sudoku}: The actual sudoku</li>
- *  <li>{@link SudokuPanel#solvedSudoku solvedSudoku}: The solved sudoku for displaying invalid values (optional)</li>
- *  <li>{@link SudokuPanel#undoStack undoStack}/{@link SudokuPanel#redoStack redoStack}: The undo/redo stack (optional)</li>
- *  <li>{@link SudokuPanel#step step}: The step that is currently highlighted (may be null if no step is selected)</li>
- *  <li>{@link SudokuPanel#chainIndex chainIndex}: The chain from step that is currently shown</li>
- *  <li>{@link SudokuPanel#coloringMap coloringMap}: All colored cells (optional)</li>
- *  <li>{@link SudokuPanel#coloringCandidateMap coloringCandidateMap}: All colored candidates (optional)</li>
+ *  <li>{@link SudokuPanelViewModel#sudoku sudoku}: The actual sudoku</li>
+ *  <li>{@link SudokuPanelViewModel#solvedSudoku solvedSudoku}: The solved sudoku for displaying invalid values (optional)</li>
+ *  <li>{@link SudokuPanelViewModel#undoStack undoStack}/{@link SudokuPanelViewModel#redoStack redoStack}: The undo/redo stack (optional)</li>
+ *  <li>{@link SudokuPanelViewModel#step step}: The step that is currently highlighted (may be null if no step is selected)</li>
+ *  <li>{@link SudokuPanelViewModel#chainIndex chainIndex}: The chain from step that is currently shown</li>
+ *  <li>{@link SudokuPanelViewModel#coloringMap coloringMap}: All colored cells (optional)</li>
+ *  <li>{@link SudokuPanelViewModel#coloringCandidateMap coloringCandidateMap}: All colored candidates (optional)</li>
  * </ul>
  * {@link SudokuSolver}:
  * <ul>
  *  <li>{@link SudokuSolver#steps steps}: The current solution</li>
  *  <li>{@link SudokuSolver#anzSteps anzSteps}: The solution summary</li>
  * </ul>
- * {@link SolutionPanel}:
+ * {@link SolutionPanelViewModel}:
  * <ul>
- *  <li>{@link SolutionPanel#titels titels}: The titles of all available solutions</li>
- *  <li>{@link SolutionPanel#tabSteps tabSteps}: The available solutions</li>
+ *  <li>{@link SolutionPanelViewModel#titels titels}: The titles of all available solutions</li>
+ *  <li>{@link SolutionPanelViewModel#tabSteps tabSteps}: The available solutions</li>
  * </ul>
  *
  * Since this is only data structure that is never saved all attributes are package protected
@@ -63,7 +65,7 @@ import com.hobiwan.hodoku.solver.SudokuSolver;
 public class GuiState {
     /** Debug flag - set to false before releasing! */
     private static final boolean DEBUG = false;
-    // items from SudokuPanel
+    // items from SudokuPanelViewModel
     private Sudoku2 sudoku = null;
     private Stack<Sudoku2> undoStack = null;
     private Stack<Sudoku2> redoStack = null;
@@ -76,7 +78,7 @@ public class GuiState {
     private List<SolutionStep> steps;
     private int[] anzSteps;
 
-    // items from SolutionPanel
+    // items from SolutionPanelViewModel
     private List<String> titels;
     private List<List<SolutionStep>> tabSteps;
 
@@ -85,9 +87,9 @@ public class GuiState {
     private Date timestamp;
     
     // internal fields, are not written by XMLEncoder
-    private SudokuPanel sudokuPanel;
+    private SudokuPanelViewModel SudokuPanelViewModel;
     private SudokuSolver sudokuSolver;
-    private SolutionPanel solutionPanel;
+    private SolutionPanelViewModel SolutionPanelViewModel;
 
     /**
      * Default constructor, only for XmlEncoder/XmlDecoder.<br>
@@ -99,25 +101,25 @@ public class GuiState {
     /**
      * Initializes a state object. If the parameters are null, {@link #get(boolean)} and
      * {@link #set()} ignore the respective objects.
-     * @param sudokuPanel
+     * @param SudokuPanelViewModel
      * @param sudokuSolver
-     * @param solutionPanel
+     * @param SolutionPanelViewModel
      */
-    public GuiState(SudokuPanel sudokuPanel, SudokuSolver sudokuSolver, SolutionPanel solutionPanel) {
-        initialize(sudokuPanel, sudokuSolver, solutionPanel);
+    public GuiState(SudokuPanelViewModel SudokuPanelViewModel, SudokuSolver sudokuSolver, SolutionPanelViewModel SolutionPanelViewModel) {
+        initialize(SudokuPanelViewModel, sudokuSolver, SolutionPanelViewModel);
     }
 
     /**
-     * Sets the internal fields for the state. Is used by {@link MainFrame#loadFromFile(boolean)}
+     * Sets the internal fields for the state. Is used by {@link MainFrameViewModel#loadFromFile(boolean)}
      * (the internal fields cannot be stored, they have no meaning outside the running program).
-     * @param sudokuPanel
+     * @param SudokuPanelViewModel
      * @param sudokuSolver
-     * @param solutionPanel
+     * @param SolutionPanelViewModel
      */
-    public final void initialize(SudokuPanel sudokuPanel, SudokuSolver sudokuSolver, SolutionPanel solutionPanel) {
-        this.sudokuPanel = sudokuPanel;
+    public final void initialize(SudokuPanelViewModel SudokuPanelViewModel, SudokuSolver sudokuSolver, SolutionPanelViewModel SolutionPanelViewModel) {
+        this.SudokuPanelViewModel = SudokuPanelViewModel;
         this.sudokuSolver = sudokuSolver;
-        this.solutionPanel = solutionPanel;
+        this.SolutionPanelViewModel = SolutionPanelViewModel;
     }
 
     /**
@@ -129,11 +131,11 @@ public class GuiState {
         if (sudokuSolver != null) {
             sudokuSolver.getState(this, copy);
         }
-        if (solutionPanel != null) {
-            solutionPanel.getState(this, copy);
+        if (SolutionPanelViewModel != null) {
+            SolutionPanelViewModel.getState(this, copy);
         }
-        if (sudokuPanel != null) {
-            sudokuPanel.getState(this, copy);
+        if (SudokuPanelViewModel != null) {
+            SudokuPanelViewModel.getState(this, copy);
         }
     }
 
@@ -144,11 +146,11 @@ public class GuiState {
         if (sudokuSolver != null) {
             sudokuSolver.setState(this);
         }
-        if (solutionPanel != null) {
-            solutionPanel.setState(this);
+        if (SolutionPanelViewModel != null) {
+            SolutionPanelViewModel.setState(this);
         }
-        if (sudokuPanel != null) {
-            sudokuPanel.setState(this);
+        if (SudokuPanelViewModel != null) {
+            SudokuPanelViewModel.setState(this);
         }
     }
     
@@ -339,7 +341,7 @@ public class GuiState {
     /**
      * @return the titels
      */
-    public // items from SolutionPanel
+    public // items from SolutionPanelViewModel
     List<String> getTitels() {
         return titels;
     }

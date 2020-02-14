@@ -23,6 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.hobiwan.hodoku.solver.SudokuSolver;
 import com.hobiwan.hodoku.solver.SudokuSolverFactory;
+import com.hobiwan.hodoku.viewmodels.MainFrameViewModel;
 
 /**
  * Checks the actual progress a sudoku has made. It should only be
@@ -30,7 +31,7 @@ import com.hobiwan.hodoku.solver.SudokuSolverFactory;
  * 
  * The progress checker runs in its own background thread. It is
  * invoked every time, the sudoku changes in the GUI. It then solves
- * the sudoku and sets the current level and score in the {@link MainFrame}.
+ * the sudoku and sets the current level and score in the {@link MainFrameViewModel}.
  * 
  * @author hobiwan
  */
@@ -45,8 +46,8 @@ public class ProgressChecker implements Runnable {
     private Thread thread;
     /** a flag that indicates, if the thread has been started yet */
     private boolean threadStarted = false;
-    /** a reference to the {@link MainFrame}. */
-    private MainFrame mainFrame = null;
+    /** a reference to the {@link MainFrameViewModel}. */
+    private MainFrameViewModel MainFrameViewModel = null;
     /** the solver to be used for the check */
     private SudokuSolver solver = null;
     
@@ -54,10 +55,10 @@ public class ProgressChecker implements Runnable {
      * Creates a new instance of ProgressChecker. The thread is
      * created, but not started yet.
      * 
-     * @param mainFrame 
+     * @param MainFrameViewModel 
      */
-    public ProgressChecker(MainFrame mainFrame) {
-        this.mainFrame = mainFrame;
+    public ProgressChecker(MainFrameViewModel MainFrameViewModel) {
+        this.MainFrameViewModel = MainFrameViewModel;
         thread = new Thread(this);
     }
 
@@ -92,7 +93,7 @@ public class ProgressChecker implements Runnable {
      * The background thread for the checks: If a new check is
      * scheduled, a {@link SudokuSolver} instance is obtained and
      * the sudoku is solved. The result is stored directly in the
-     * {@link #mainFrame}.
+     * {@link #MainFrameViewModel}.
      */
     @Override
     public void run() {
@@ -123,13 +124,13 @@ public class ProgressChecker implements Runnable {
                 }
                 solver.setSudoku(sudoku);
                 if (solver.solve()) {
-                    mainFrame.setCurrentLevel(sudoku.getLevel());
-                    mainFrame.setCurrentScore(sudoku.getScore());
+                    MainFrameViewModel.setCurrentLevel(sudoku.getLevel());
+                    MainFrameViewModel.setCurrentScore(sudoku.getScore());
 //                    System.out.println("   " + sudoku.getLevel().getName() + ", " + sudoku.getScore());
                     EventQueue.invokeLater(new Runnable() {
                         @Override
                         public void run() {
-                            mainFrame.setProgressLabel();
+                            MainFrameViewModel.setProgressLabel();
                         }
                     });
                 } else {

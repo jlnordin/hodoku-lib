@@ -37,7 +37,7 @@ import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.plaf.FontUIResource;
-
+import com.hobiwan.hodoku.viewmodels.MainFrameViewModel;
 
 /**
  *
@@ -252,7 +252,7 @@ public class SudokuUtil {
 
         // ok, the correct class name is now in className
         // -> obtain an instance of the LaF class
-        ClassLoader classLoader = MainFrame.class.getClassLoader();
+        ClassLoader classLoader = MainFrameViewModel.class.getClassLoader();
         Class<?> lafClass = null;
         try {
             lafClass = classLoader.loadClass(className);

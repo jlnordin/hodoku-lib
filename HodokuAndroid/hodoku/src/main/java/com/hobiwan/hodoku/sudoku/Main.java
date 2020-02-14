@@ -21,6 +21,8 @@ package com.hobiwan.hodoku.sudoku;
 import com.hobiwan.hodoku.generator.BackgroundGeneratorThread;
 import com.hobiwan.hodoku.generator.SudokuGenerator;
 import com.hobiwan.hodoku.generator.SudokuGeneratorFactory;
+import com.hobiwan.hodoku.viewmodels.MainFrameViewModel;
+import com.hobiwan.hodoku.viewmodels.SudokuConsoleFrameViewModel;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -427,7 +429,7 @@ public class Main {
             }
         }
         // handle command line arguments
-        SudokuConsoleFrame consoleFrame = null;
+        SudokuConsoleFrameViewModel consoleFrame = null;
         if (!launchGui && (launch4jUsed && args.length > 1 || !launch4jUsed && args.length > 0)) {
 //            for (int i = 0; i < args.length; i++) {
 //                System.out.println("args[" + i + "]: <" + args[i] + ">");
@@ -438,12 +440,12 @@ public class Main {
             if (launch4jUsed) {
                 //JOptionPane.showMessageDialog(null, "Program has no console!", "Console error", JOptionPane.ERROR_MESSAGE);
                 //System.out.println("no console!");
-                consoleFrame = new SudokuConsoleFrame();
+                consoleFrame = new SudokuConsoleFrameViewModel();
                 consoleFrame.setVisible(true);
             }
 //            System.out.println(path);
             // copyright notice
-            System.out.println(MainFrame.VERSION + " - " + MainFrame.BUILD);
+            System.out.println(MainFrameViewModel.VERSION + " - " + MainFrameViewModel.BUILD);
             System.out.println("Copyright (C) 2008-12  Bernhard Hobiger\r\n"
                     + "\r\n"
                     + "HoDoKu is free software: you can redistribute it and/or modify\r\n"
@@ -869,7 +871,7 @@ public class Main {
 
             @Override
             public void run() {
-                new MainFrame(lf).setVisible(true);
+                new MainFrameViewModel(lf).setVisible(true);
             }
         });
     }

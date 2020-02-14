@@ -28,14 +28,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.hobiwan.hodoku.sudoku.DifficultyLevel;
 import com.hobiwan.hodoku.sudoku.DifficultyType;
-import com.hobiwan.hodoku.sudoku.FindAllStepsProgressDialog;
+import com.hobiwan.hodoku.viewmodels.FindAllStepsProgressDialogViewModel;
 import com.hobiwan.hodoku.sudoku.GameMode;
 import com.hobiwan.hodoku.sudoku.GuiState;
 import com.hobiwan.hodoku.sudoku.Options;
 import com.hobiwan.hodoku.sudoku.SolutionCategory;
 import com.hobiwan.hodoku.sudoku.SolutionStep;
 import com.hobiwan.hodoku.sudoku.SolutionType;
-import com.hobiwan.hodoku.sudoku.SolverProgressDialog;
+import com.hobiwan.hodoku.viewmodels.SolverProgressDialogViewModel;
 import com.hobiwan.hodoku.sudoku.StepConfig;
 import com.hobiwan.hodoku.sudoku.Sudoku2;
 import com.hobiwan.hodoku.sudoku.SudokuUtil;
@@ -73,7 +73,7 @@ public class SudokuSolver {
         if (!withGui) {
             return solve();
         }
-        SolverProgressDialog dlg = new SolverProgressDialog(null, true, this);
+        SolverProgressDialogViewModel dlg = new SolverProgressDialogViewModel(null, true, this);
         Thread thread = dlg.getThread();
         try {
             thread.join(2000);
@@ -157,7 +157,7 @@ public class SudokuSolver {
      * @return
      */
     public boolean solve(DifficultyLevel maxLevel, Sudoku2 tmpSudoku, boolean rejectTooLowScore,
-            final SolverProgressDialog dlg) {
+            final SolverProgressDialogViewModel dlg) {
         return solve(maxLevel, tmpSudoku, rejectTooLowScore, dlg, false);
     }
 
@@ -171,7 +171,7 @@ public class SudokuSolver {
      * @return
      */
     public boolean solve(DifficultyLevel maxLevel, Sudoku2 tmpSudoku, boolean rejectTooLowScore,
-            final SolverProgressDialog dlg, boolean singlesOnly) {
+            final SolverProgressDialogViewModel dlg, boolean singlesOnly) {
         return solve(maxLevel, tmpSudoku, rejectTooLowScore, dlg, singlesOnly, 
                 Options.getInstance().solverSteps, GameMode.PLAYING);
     }
@@ -195,7 +195,7 @@ public class SudokuSolver {
      * @return
      */
     public boolean solve(DifficultyLevel maxLevel, Sudoku2 tmpSudoku, boolean rejectTooLowScore,
-            final SolverProgressDialog dlg, boolean singlesOnly, StepConfig[] stepConfigs,
+            final SolverProgressDialogViewModel dlg, boolean singlesOnly, StepConfig[] stepConfigs,
             GameMode gameMode) {
         if (tmpSudoku != null) {
             setSudoku(tmpSudoku);
@@ -288,7 +288,7 @@ public class SudokuSolver {
      * @param stepsTocheck 
      * @param dlg
      */
-    public void getProgressScore(Sudoku2 tmpSudoku, List<SolutionStep> stepsTocheck, FindAllStepsProgressDialog dlg) {
+    public void getProgressScore(Sudoku2 tmpSudoku, List<SolutionStep> stepsTocheck, FindAllStepsProgressDialogViewModel dlg) {
         if (dlg != null) {
             dlg.resetFishProgressBar(stepsTocheck.size());
         }

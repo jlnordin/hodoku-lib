@@ -29,7 +29,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import com.hobiwan.hodoku.sudoku.Candidate;
 import com.hobiwan.hodoku.sudoku.Chain;
-import com.hobiwan.hodoku.sudoku.FindAllStepsProgressDialog;
+import com.hobiwan.hodoku.viewmodels.FindAllStepsProgressDialogViewModel;
 import com.hobiwan.hodoku.sudoku.Options;
 import com.hobiwan.hodoku.sudoku.SolutionStep;
 import com.hobiwan.hodoku.sudoku.SolutionType;
@@ -226,7 +226,7 @@ public class FishSolver extends AbstractSolver {
     /** A set for cannibalistic eliminations in Kraken Fish */
     private SudokuSet krakenCannibalisticSet = new SudokuSet();
     /** A progress dialog for "find all steps" */
-    private FindAllStepsProgressDialog dlg = null;
+    private FindAllStepsProgressDialogViewModel dlg = null;
     /** A global {@link SolutionStep}, speeds up search */
     private SolutionStep globalStep = new SolutionStep(SolutionType.HIDDEN_SINGLE);
     /** A {@link TablingSolver} for Kraken Fish search */
@@ -485,7 +485,7 @@ public class FishSolver extends AbstractSolver {
      * @return
      */
     protected List<SolutionStep> getAllFishes(int minSize, int maxSize,
-            int maxFins, int maxEndoFins, FindAllStepsProgressDialog dlg, int forCandidate, int type) {
+            int maxFins, int maxEndoFins, FindAllStepsProgressDialogViewModel dlg, int forCandidate, int type) {
         this.dlg = dlg;
         sudoku = finder.getSudoku();
         int oldMaxFins = Options.getInstance().getMaxFins();
@@ -586,7 +586,7 @@ public class FishSolver extends AbstractSolver {
     }
 
     /**
-     * Find all Kraken Fishes. Arguments see {@link #getAllFishes(int, int, int, int, sudoku.FindAllStepsProgressDialog, int, int)}.
+     * Find all Kraken Fishes. Arguments see {@link #getAllFishes(int, int, int, int, viewmodels.FindAllStepsProgressDialogViewModel, int, int)}.
      * @param minSize
      * @param maxSize
      * @param maxFins
@@ -597,7 +597,7 @@ public class FishSolver extends AbstractSolver {
      * @return
      */
     protected List<SolutionStep> getAllKrakenFishes(int minSize, int maxSize,
-            int maxFins, int maxEndoFins, FindAllStepsProgressDialog dlg, int forCandidate, int type) {
+            int maxFins, int maxEndoFins, FindAllStepsProgressDialogViewModel dlg, int forCandidate, int type) {
         tablingSolver = finder.getTablingSolver();
         synchronized (tablingSolver) {
             //System.out.println("getAllKrakenFishes: " + minSize + "/" + maxSize + "/" + forCandidate);

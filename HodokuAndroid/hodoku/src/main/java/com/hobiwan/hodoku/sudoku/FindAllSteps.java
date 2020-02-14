@@ -23,13 +23,14 @@ import java.awt.EventQueue;
 import java.util.List;
 import com.hobiwan.hodoku.solver.SudokuSolverFactory;
 import com.hobiwan.hodoku.solver.SudokuStepFinder;
+import com.hobiwan.hodoku.viewmodels.FindAllStepsProgressDialogViewModel;
 
 /**
  *
  * @author hobiwan
  */
 public class FindAllSteps implements Runnable {
-    private FindAllStepsProgressDialog dlg = null;
+    private FindAllStepsProgressDialogViewModel dlg = null;
     private List<SolutionStep> steps;
     private List<SolutionType> testTypes = null;
     private Sudoku2 sudoku;
@@ -47,7 +48,7 @@ public class FindAllSteps implements Runnable {
         stepFinder = SudokuSolverFactory.getDefaultSolverInstance().getStepFinder();
     }
     
-    public FindAllSteps(List<SolutionStep> steps, Sudoku2 sudoku, FindAllStepsProgressDialog dlg) {
+    public FindAllSteps(List<SolutionStep> steps, Sudoku2 sudoku, FindAllStepsProgressDialogViewModel dlg) {
         this();
         
         this.sudoku = sudoku;
@@ -65,7 +66,7 @@ public class FindAllSteps implements Runnable {
     }
 
     /**
-     * The class can be called by FindAllStepsProgressDialog in which case the
+     * The class can be called by FindAllStepsProgressDialogViewModel in which case the
      * configuration from Options.solverSteps has to be read. If it is called
      * from BatchSolveThread only all Steps for testType have to be found
      * 
@@ -113,7 +114,7 @@ public class FindAllSteps implements Runnable {
         while (! Thread.interrupted()) {
             switch (actStep) {
                 case 0:
-                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.simple_solutions"), actStep);
+                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.simple_solutions"), actStep);
                     steps1 = stepFinder.findAllFullHouses(sudoku);
                     steps.addAll(steps1);
                     steps1 = stepFinder.findAllHiddenXle(sudoku);
@@ -158,7 +159,7 @@ public class FindAllSteps implements Runnable {
                 case 8:
                 case 9:
                     //System.out.println("Fish search cand " + (actStep) + ": " + Options.getInstance().allStepsFishCandidates.charAt(actStep - 1));
-                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.fish") + " " + actStep, actStep);
+                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.fish") + " " + actStep, actStep);
                     if ((testTypes == null && Options.getInstance().isAllStepsSearchFish() && 
                             Options.getInstance().getAllStepsFishCandidates().charAt(actStep - 1) == '1') ||
                             testTypes != null && isFishTestTypes()) {
@@ -185,7 +186,7 @@ public class FindAllSteps implements Runnable {
                     //System.out.println("Kraken Fish search cand " + (actStep - 9) + ": " + Options.getInstance().allStepsFishCandidates.charAt(actStep - 10));
                     if (isAllStepsEnabled(SolutionType.KRAKEN_FISH) && 
                             Options.getInstance().getAllStepsKrakenFishCandidates().charAt(actStep - 10) == '1') {
-                        updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.kraken_fish") + " " + (actStep - 9), actStep);
+                        updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.kraken_fish") + " " + (actStep - 9), actStep);
                         steps1 = stepFinder.getAllKrakenFishes(sudoku, Options.getInstance().getAllStepsKrakenMinFishSize(),
                                 Options.getInstance().getAllStepsKrakenMaxFishSize(), 
                                 Options.getInstance().getAllStepsMaxKrakenFins(), 
@@ -195,7 +196,7 @@ public class FindAllSteps implements Runnable {
                     }
                     break;
                 case 19:
-                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.uniqueness"), actStep);
+                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.uniqueness"), actStep);
                     if (isAllStepsEnabled(SolutionType.UNIQUENESS_1) || 
                             isAllStepsEnabled(SolutionType.UNIQUENESS_2) ||
                             isAllStepsEnabled(SolutionType.UNIQUENESS_3) ||
@@ -229,7 +230,7 @@ public class FindAllSteps implements Runnable {
                     }
                     break;
                 case 20:
-                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.chains"), actStep);
+                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.chains"), actStep);
                     if (isAllStepsEnabled(SolutionType.X_CHAIN) || isAllStepsEnabled(SolutionType.XY_CHAIN) ||
                             isAllStepsEnabled(SolutionType.REMOTE_PAIR) || isAllStepsEnabled(SolutionType.TURBOT_FISH)) {
                         steps1 = stepFinder.getAllChains(sudoku);
@@ -238,21 +239,21 @@ public class FindAllSteps implements Runnable {
                     }
                     break;
                 case 21:
-                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.nice_loops"), actStep);
+                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.nice_loops"), actStep);
                     if (isAllStepsEnabled(SolutionType.NICE_LOOP)) {
                         steps1 = stepFinder.getAllNiceLoops(sudoku);
                         steps.addAll(steps1);
                     }
                     break;
                 case 22:
-                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.grouped_nice_loops"), actStep);
+                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.grouped_nice_loops"), actStep);
                     if (isAllStepsEnabled(SolutionType.GROUPED_NICE_LOOP)) {
                         steps1 = stepFinder.getAllGroupedNiceLoops(sudoku);
                         steps.addAll(steps1);
                     }
                     break;
                 case 23:
-                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.templates"), actStep);
+                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.templates"), actStep);
                     if (isAllStepsEnabled(SolutionType.TEMPLATE_DEL) || isAllStepsEnabled(SolutionType.TEMPLATE_SET)) {
                         steps1 = stepFinder.getAllTemplates(sudoku);
                         filterSteps(steps1);
@@ -260,7 +261,7 @@ public class FindAllSteps implements Runnable {
                     }
                     break;
                 case 24:
-                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.als"), actStep);
+                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.als"), actStep);
                     if (isAllStepsEnabled(SolutionType.ALS_XZ) || isAllStepsEnabled(SolutionType.ALS_XY_WING) ||
                             isAllStepsEnabled(SolutionType.ALS_XY_CHAIN)) {
                         steps1 = stepFinder.getAllAlsSteps(sudoku, isAllStepsEnabled(SolutionType.ALS_XZ),
@@ -277,20 +278,20 @@ public class FindAllSteps implements Runnable {
                     break;
                 case 25:
                     if (isAllStepsEnabled(SolutionType.FORCING_CHAIN)) {
-                        updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.forcing_Chains"), actStep);
+                        updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.forcing_Chains"), actStep);
                         steps1 = stepFinder.getAllForcingChains(sudoku);
                         steps.addAll(steps1);
                     }
                     break;
                 case 26:
                     if (isAllStepsEnabled(SolutionType.FORCING_NET)) {
-                        updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.forcing_Nets"), actStep);
+                        updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.forcing_Nets"), actStep);
                         steps1 = stepFinder.getAllForcingNets(sudoku);
                         steps.addAll(steps1);
                     }
                     break;
                 case 27:
-                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialog").getString("FindAllStepsProgressDialog.progress_Score"), actStep);
+                    updateProgress(java.util.ResourceBundle.getBundle("intl/FindAllStepsProgressDialogViewModel").getString("FindAllStepsProgressDialogViewModel.progress_Score"), actStep);
                     // calculate progress measure
                     SudokuSolverFactory.getDefaultSolverInstance().getProgressScore(sudoku, steps, dlg);
                     break;
