@@ -7,4 +7,10 @@ public class FindAllStepsProgressDialogViewModel {
 
     public void resetFishProgressBar(int maxProgress) {
     }
+
+    public void updateProgress(String status, int step) {
+    }
+
+    public void setVisible(boolean visible) {
+    }
 }
