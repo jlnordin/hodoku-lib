@@ -1280,6 +1280,7 @@ public class AlsSolver extends AbstractSolver {
                 + "  getRCs(): total " + (allRcsNanos / 1000) + "us, average: " + (allRcsNanos / anzCalls / 1000) + "us\r\n";
     }
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         //DEBUG = true;
         //Sudoku2 sudoku = new Sudoku2(true);
