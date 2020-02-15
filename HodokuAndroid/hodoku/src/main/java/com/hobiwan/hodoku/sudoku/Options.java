@@ -20,7 +20,7 @@ package com.hobiwan.hodoku.sudoku;
 
 import com.hobiwan.hodoku.generator.BackgroundGeneratorThread;
 import com.hobiwan.hodoku.generator.GeneratorPattern;
-import java.awt.Color;
+import com.hobiwan.hodoku.compatibility.Color;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.beans.XMLDecoder;
@@ -1366,7 +1366,7 @@ public final class Options {
     }
 
     public Color getColorKuColor(int n) {
-        return (((n >= 1) && (n <= colorKuColors.length)) ? colorKuColors[n - 1] : Color.black);
+        return (((n >= 1) && (n <= colorKuColors.length)) ? colorKuColors[n - 1] : Color.BLACK);
     }
     /**
      * @param colorKuColors the colorKuColors to set
